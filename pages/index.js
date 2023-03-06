@@ -3,8 +3,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import styles from '@/styles/Home.module.css'
 import { motion } from "framer-motion";
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import TawkTo from '@/component/tawkto';
+import Dot from '@/component/dot';
 
 const PageTransition = ({ children }) => {
   return (
@@ -31,7 +32,9 @@ export default function Home() {
       </Head>
       <div className={styles.wrapper}>
         <header className={styles.header}>
+          <div class="dot"></div>
           <TawkTo />
+          <Dot />
           <h2></h2>
         </header>
         <main className={styles.main}>
