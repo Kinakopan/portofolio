@@ -105,3 +105,24 @@ a {
     color-scheme: dark;
   }
 }
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgb(255, 0, 230);
+  position: absolute;
+  opacity: 0.3;
+}
+
+@keyframes move-wave {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(10px) translateY(-10px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}

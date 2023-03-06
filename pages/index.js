@@ -4,6 +4,7 @@ import Link from 'next/link'
 import styles from '@/styles/Home.module.css'
 import { motion } from "framer-motion";
 import { useState, useEffect } from 'react'
+import DotBackground from '@/component/background';
 import TawkTo from '@/component/tawkto';
 import Dot from '@/component/dot';
 
@@ -31,12 +32,12 @@ export default function Home() {
         <script src="/tawk.js" async></script>
       </Head>
       <div className={styles.wrapper}>
-        <header className={styles.header}>
-          <div class="dot"></div>
-          <TawkTo />
-          <Dot />
+        {/* <header className={styles.header}>
           <h2></h2>
-        </header>
+        </header> */}
+        <DotBackground />
+        <TawkTo />
+        <Dot />
         <main className={styles.main}>
           <div  className={styles.cont_profile}>
             <div>
