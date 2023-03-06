@@ -195,14 +195,16 @@
 }
 
 .button:hover {
-  background: rgb(255, 180, 70);
-  background: linear-gradient(
-    317deg,
-    rgba(255, 180, 70, 1) 0%,
-    rgba(169, 143, 247, 1) 100%
-  );
+  background: black;
   animation: rotate 0.5s ease-in-out;
   animation-fill-mode: forwards;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover .button_txt {
+  background: linear-gradient(to right, rgba(255, 180, 70, 1) , rgba(169, 143, 247, 1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 @keyframes pulse {
@@ -223,9 +225,8 @@
   0% {
     transform: rotate(0deg);
   }
-
   100% {
-    transform: rotate(3deg);
+    transform: rotate(2deg);
   }
 }
 

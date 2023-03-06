@@ -52,9 +52,10 @@ export default function Home() {
               <p className={`${styles.msg_profile} ${styles.msg_profile1}`}>Hi! I'm Mio Takagi.</p>
               <p className={`${styles.msg_profile} ${styles.msg_profile2}`}>A Front-End Developer.</p>
               <Link
+                style={{cursor: 'pointer'}}
                 className={styles.button}
                 href={"https://vankurage.com/"}>
-                  Check out my Portfolio
+                  <span className={styles.button_txt}>Check out my Portfolio</span>
               </Link>
             </div>
           </div>
