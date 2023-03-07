@@ -7,7 +7,7 @@ const Dot = () => {
     const handleMouseMove = (event) => {
       setTimeout(() => {
         setPosition({ x: event.clientX, y: event.clientY });
-      }, 100);
+      }, 200);
     };
 
     document.addEventListener('mousemove', handleMouseMove);

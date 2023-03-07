@@ -110,9 +110,9 @@ a {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: rgb(27, 0, 231);
+  background-color: #fff;
   position: absolute;
-  opacity: 0.3;
+  filter: blur(2px);
 }
 
 @keyframes move-wave {
