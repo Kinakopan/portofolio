@@ -9,6 +9,7 @@ import TawkTo from '@/component/tawkto';
 import Dot from '@/component/dot';
 
 const PageTransition = ({ children }) => {
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -21,6 +22,37 @@ const PageTransition = ({ children }) => {
 };
 
 export default function Home() {
+  const [showBubble, setShowBubble] = useState(false);
+  const [imgSrc, setImgSrc] = useState('/images/me.png');
+  const [wrapperClassName, setWrapperClassName] = useState(`${styles.wrapper} ${styles.wrapperBg}`);
+  const [imgClassName, setImgClassName] = useState(`${styles.img_profile}`);
+  const [bubbleClassName, setBubbleClassName] = useState(`${styles.box_bubble}`);
+  const [clickme_txt, setClickme_txt] = useState('Click Me!');
+  const [leftValue, setLeftValue] = useState('10%');
+  const [topValue, setTopValue] = useState('40%');
+  const [bubble1_txt, setBubble1_txt] = useState('GitHub');
+  const [bubble2_txt, setBubble2_txt] = useState('LinkedIn');
+  const [bubble3_txt, setBubble3_txt] = useState('Email');
+
+  const handleClick = () => {
+    setShowBubble(true);
+    setWrapperClassName(`${styles.wrapper} ${styles.wrapperBg_clicked}`)
+    setImgClassName(`${styles.img_profile} ${styles.img_profile_clicked}`)
+    setBubbleClassName(`${styles.box_bubble} ${styles.box_bubble_clicked}`)
+    // setImgSrc('/images/dog.png');
+    setClickme_txt('A bit about me...')
+    setLeftValue('-10%')
+    setTopValue('70%')
+    setBubble1_txt('Friendly')
+    setBubble3_txt('Fast Learner')
+    setBubble2_txt('Hard Worker')
+  };
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setImgSrc('/images/dog.png');
+  //   }, 1000); // change image source after 1 second
+  // }, [imgClassName]);
 
   return (
     <PageTransition>
@@ -31,23 +63,62 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <script src="/tawk.js" async></script>
       </Head>
-      <div className={styles.wrapper}>
-        {/* <header className={styles.header}>
-          <h2></h2>
-        </header> */}
+      <div className={wrapperClassName}>
         <DotBackground />
         <TawkTo />
         <Dot />
         <main className={styles.main}>
           <div  className={styles.cont_profile}>
-            <div>
+            <div className={styles.box_profile}>
               <Image
-                className={styles.img_profile}
-                src="/images/me.png"
+                className={imgClassName}
+                src={imgSrc}
                 width={200}
                 height={300}
-                alt="Profile picture of me"/>
+                alt="Profile picture of me"
+                transition='all 0.3s ease-in-out'
+                onClick={handleClick} />
+                {/* {showBubble && ( */}
+                  <div className={bubbleClassName}>
+                    <div
+                      className={`${styles.bubble} ${styles.clickme}`}
+                      style={{left: `${leftValue}`, top: `${topValue}`}}>
+                      {clickme_txt}
+                    </div>
+                    <Link
+                      className={`${styles.bubble} ${styles.bubble1}`}
+                      href={'https://github.com/Kinakopan'}>
+                      <h2
+                        className={styles.neonLetter}
+                        contenteditable
+                        spellcheck="false">
+                          {bubble1_txt}
+                      </h2>
+                    </Link>
+                    <Link
+                      className={`${styles.bubble} ${styles.bubble2}`}
+                      href={'https://www.linkedin.com/in/mio-takagi-5ab109198/'}>
+                      <h2
+                        className={styles.neonLetter}
+                        contenteditable
+                        spellcheck="false">
+                          {bubble2_txt}
+                      </h2>
+                    </Link>
+                    <Link
+                      className={`${styles.bubble} ${styles.bubble3}`}
+                      href={'https://github.com/Kinakopan'}>
+                      <h2
+                        className={styles.neonLetter}
+                        contenteditable
+                        spellcheck="false">
+                          {bubble3_txt}
+                      </h2>
+                    </Link>
+                  </div>
+                {/* )} */}
             </div>
+
             <div className={styles.txt_profile}>
               <p className={`${styles.msg_profile} ${styles.msg_profile1}`}>Hi! I'm Mio Takagi.</p>
               <p className={`${styles.msg_profile} ${styles.msg_profile2}`}>A Front-End Developer.</p>

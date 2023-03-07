@@ -32,8 +32,8 @@ const DotBackground = () => {
     const intervalId = setInterval(() => {
       const updatedDots = dots.map((dot) => {
         // Update the dot's position based on its velocity
-        const x = dot.x + dot.dx * 10;
-        const y = dot.y + dot.dy * 10;
+        const x = dot.x + dot.dx * 2;
+        const y = dot.y + dot.dy * 2;
 
         // Wrap the dot around to the other side if it goes outside of the window
         const newX = x < 0 ? window.innerWidth : x > window.innerWidth ? 0 : x;

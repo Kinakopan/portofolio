@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const Dot = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState({ x: 500, y: 200 });
 
   useEffect(() => {
     const handleMouseMove = (event) => {
@@ -23,7 +23,7 @@ const Dot = () => {
         width: '40px',
         height: '40px',
         borderRadius: '50%',
-        backgroundColor: '#00ffe0',
+        backgroundColor: '#ffb446',
         position: 'absolute',
         left: position.x + 'px',
         top: position.y + 'px',
